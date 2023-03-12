@@ -90,6 +90,7 @@ SOURCES += \
     dialogs/dlgvolumen.cpp \
     dialogs/dlgwasseraufbereitung.cpp \
     dialogs/dlgwasserprofile.cpp \
+    dialogs/dlgimportgaerverlauf.cpp \
     helper/htmlhighlighter.cpp \
     helper/mustache.cpp \
     helper/obrama.cpp \
@@ -185,6 +186,7 @@ HEADERS += \
     dialogs/dlgvolumen.h \
     dialogs/dlgwasseraufbereitung.h \
     dialogs/dlgwasserprofile.h \
+    dialogs/dlgimportgaerverlauf.h \
     helper/htmlhighlighter.h \
     helper/mustache.h \
     helper/obrama.h \
@@ -264,6 +266,7 @@ FORMS += \
     dialogs/dlgvolumen.ui \
     dialogs/dlgwasseraufbereitung.ui \
     dialogs/dlgwasserprofile.ui \
+    dialogs/dlgimportgaerverlauf.ui \
     widgets/wdganhang.ui \
     widgets/wdgbemerkung.ui \
     widgets/wdgbewertung.ui \

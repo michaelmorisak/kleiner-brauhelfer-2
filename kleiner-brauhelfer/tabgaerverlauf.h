@@ -54,6 +54,8 @@ private slots:
     void on_btnDelNachgaerMessung_clicked();
     void on_btnImportNachgaerMessung_clicked();
 
+    void on_btnImportTilt_clicked();
+
 private:
     Ui::TabGaerverlauf *ui;
     QByteArray mDefaultSplitterStateSchnellgaerung;

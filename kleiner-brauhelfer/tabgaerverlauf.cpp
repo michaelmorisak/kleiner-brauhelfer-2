@@ -5,6 +5,9 @@
 #include <QClipboard>
 #include <QMimeData>
 #include <QFileDialog>
+#include <QNetworkAccessManager>
+#include <QNetworkReply>
+#include <QPointer>
 #include "brauhelfer.h"
 #include "settings.h"
 #include "model/datetimedelegate.h"
@@ -12,7 +15,9 @@
 #include "model/restextraktdelegate.h"
 #include "dialogs/dlgrestextrakt.h"
 #include "dialogs/dlgrohstoffeabziehen.h"
+#include "dialogs/dlgimportgaerverlauf.h"
 #include "widgets/wdgweiterezutatgabe.h"
+#include "modelimportgaerverlauf.h"
 
 #if (QT_VERSION < QT_VERSION_CHECK(5, 7, 0))
 #define qAsConst(x) (x)
@@ -925,3 +930,48 @@ void TabGaerverlauf::pasteFromClipboardNachgaerverlauf(const QString& str)
                                 "Datum2;Druck2;Temperatur2[;Bemerkung2]"));
     }
 }
+
+void TabGaerverlauf::on_btnImportTilt_clicked()
+{
+    DlgImportGaerverlauf dlg(this);
+    dlg.exec();
+    bool wasBlocked = bh->modelHauptgaerverlauf()->blockSignals(true);
+    bool newData = false;
+    GaerverlaufTable table;
+    if (dlg.data.length() > 1) {
+        for (QString line : dlg.data) {
+            QStringList cols = line.split(",");
+            QDateTime dt = toDateTime(cols[0]);
+            if (dt.isValid())
+            {
+                GaerverlaufMesswert value(dt);
+                value.setSre(BierCalc::dichteToPlato(toDouble(cols[3])));
+                bool ok;
+                double tempF = toDouble(cols[4], &ok);
+                if (ok)
+                {
+                    double temp = (tempF - 32) * 5/9;
+                    value.setTemp(temp);
+                }
+                if (value.hasValues()) {
+                    if (table.addMesswert(value)) {
+                        newData = true;
+                    }
+                }
+            }
+        }
+    }
+
+    if (newData)
+    {
+        for (const GaerverlaufMesswert::DBValue & dbValues : table.getDBValues(bh->sud()))
+        {
+            bh->modelHauptgaerverlauf()->appendDirect(dbValues);
+        }
+    }
+
+    bh->modelHauptgaerverlauf()->blockSignals(wasBlocked);
+    bh->modelHauptgaerverlauf()->emitModified();
+    bh->sud()->modelHauptgaerverlauf()->invalidate();
+}
+

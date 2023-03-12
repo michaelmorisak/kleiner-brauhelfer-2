@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>DlgImportGaerverlauf</class>
+ <widget class="QDialog" name="DlgImportGaerverlauf">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1232</width>
+    <height>672</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QPlainTextEdit" name="importPreview">
+   <property name="geometry">
+    <rect>
+     <x>9</x>
+     <y>153</y>
+     <width>1221</width>
+     <height>480</height>
+    </rect>
+   </property>
+   <property name="lineWrapMode">
+    <enum>QPlainTextEdit::NoWrap</enum>
+   </property>
+  </widget>
+  <widget class="QDialogButtonBox" name="buttonBox">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>640</y>
+     <width>1135</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="standardButtons">
+    <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1232</width>
+     <height>140</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QGroupBox" name="gpFormat">
+      <property name="title">
+       <string>Format</string>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QRadioButton" name="rbFormatKbh">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hiermit werden am besten &amp;quot;KBH&amp;quot;-Rezepte importiert. json ist das bevorzugte Dateiformat der Datenbank des Kleinen Brauhelfers v2.&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#ff2600;&quot;&gt;Achtung:&lt;/span&gt; Um Fehler zu vermeiden, sollte man immer das passende Datenbankformat je nach Quelle wählen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>kleiner-brauhelfer</string>
+         </property>
+         <property name="checked">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rbFormatMmum">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hiermit werden am besten &amp;quot;MMuM&amp;quot;-Rezepte importiert. json ist das bevorzugte Dateiformat der beliebten Rezeptdatenbank von &lt;a href=&quot;maischemalzundmehr.de&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0068da;&quot;&gt;Maische, Malz und mehr.&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#ff2600;&quot;&gt;Achtung:&lt;/span&gt; Um Fehler zu vermeiden, sollte man immer das passende Datenbankformat je nach Quelle wählen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>tilt2</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rbFormatBeerxml">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hiermit werden am besten Rezepte im XML-Format importiert. BeerXML ist das bevorzugte Dateiformat beliebter amerikanischer Rezeptseiten wie &lt;a href=&quot;brewersfriend.com&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0068da;&quot;&gt;Brewer's Friend&lt;/span&gt;&lt;/a&gt;&lt;a href=&quot;maischemalzundmehr.de&quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0068da;&quot;&gt;.&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:700; color:#ff2600;&quot;&gt;Achtung:&lt;/span&gt; Um Fehler zu vermeiden, sollte man immer das passende Datenbankformat je nach Quelle wählen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>??</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QRadioButton" name="rbFormatBrautomat">
+         <property name="text">
+          <string>??</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="gpImport">
+      <property name="title">
+       <string>Quelle</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <property name="verticalSpacing">
+        <number>4</number>
+       </property>
+       <item row="1" column="1">
+        <widget class="QLineEdit" name="tbUrl">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mit passender URL kann hier ein Rezept direkt in den Kleinen Brauhelfer geladen werden.&lt;/p&gt;&lt;p&gt;Bei MMuM kopiert man die URL, indem man mit der rechten Maustaste auf den &amp;quot;JSON Export&amp;quot; Button klickt und dann &amp;quot;Adresse des Links kopieren&amp;quot; wählt.&lt;/p&gt;&lt;p&gt;Bei Brewers Friend: Rezept öffnen, Export - Beerxml, auf der nächsten Seite Rechtsklick über dem Link und &amp;quot;Adresse des Links kopieren&amp;quot; wählen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QPushButton" name="btnDownload">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hiermit wird der Datensatz direkt ins Fenster geladen.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Download</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_2">
+         <property name="text">
+          <string>URL</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="btnOeffnen">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Hiermit wird der Dateipfad geöffnet oder es wird der Dateipfad zur Quelle ausgewählt.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+         <property name="text">
+          <string>Öffnen</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="tbDatei">
+         <property name="toolTip">
+          <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Mit passendem Pfad kann hier ein Rezept direkt in den Kleinen Brauhelfer geladen werden.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>Datei</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

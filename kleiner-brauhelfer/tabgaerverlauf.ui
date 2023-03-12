@@ -28,7 +28,7 @@
         <x>0</x>
         <y>0</y>
         <width>796</width>
-        <height>586</height>
+        <height>580</height>
        </rect>
       </property>
       <property name="toolTip">
@@ -178,7 +178,7 @@
         <x>0</x>
         <y>0</y>
         <width>796</width>
-        <height>586</height>
+        <height>580</height>
        </rect>
       </property>
       <property name="toolTip">
@@ -300,6 +300,13 @@
                  <iconset resource="images.qrc">
                   <normaloff>:/images/light/import.svg</normaloff>
                   <disabledoff>:/images/disabled/import.svg</disabledoff>:/images/light/import.svg</iconset>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="btnImportTilt">
+                <property name="text">
+                 <string>Import Tilt</string>
                 </property>
                </widget>
               </item>
@@ -429,7 +436,7 @@
         <x>0</x>
         <y>0</y>
         <width>796</width>
-        <height>586</height>
+        <height>580</height>
        </rect>
       </property>
       <property name="toolTip">
